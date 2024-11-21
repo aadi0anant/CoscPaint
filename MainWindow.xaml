@@ -1,0 +1,27 @@
+﻿<Window x:Class="CoscPaint.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CoscPaint"
+        mc:Ignorable="d"
+        Title="COSC Paint!"
+        Height="480" MinHeight="300"
+        Width="640" MinWidth="300"
+        >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="249*"/>
+            <ColumnDefinition Width="71*"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.ColumnSpan="2">
+            <!-- Menu bar or Ribbon, perhaps, at the top? Dock=Top. -->
+            <!-- ToolBar under the Menu or Ribbon. Dock=Top.-->
+            <!-- Canvas for drawing. -->
+            <Canvas Name="canvasDraw" Background="White" Margin="2" MouseLeftButtonDown="StartDraw" MouseLeftButtonUp="EndDraw" MouseMove="MouseOnCanvas"/>
+
+            <!-- Status bar, at the bottom? Dock=Bottom.-->
+
+        </DockPanel>
+    </Grid>
+</Window>
