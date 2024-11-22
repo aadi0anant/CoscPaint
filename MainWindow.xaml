@@ -10,18 +10,41 @@
         Width="640" MinWidth="300"
         >
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="249*"/>
-            <ColumnDefinition Width="71*"/>
-        </Grid.ColumnDefinitions>
-        <DockPanel Grid.ColumnSpan="2">
-            <!-- Menu bar or Ribbon, perhaps, at the top? Dock=Top. -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <!-- Menu bar or Ribbon, perhaps, at the top? Dock=Top. -->
+        <Menu Grid.Row="0">
+            <MenuItem Header="_File" ToolTip="Click for multiple file options" TabIndex="0">
+                <MenuItem Header="_New Window" Click="menuNewWindow_Click" ToolTip="Click to open new window"/>
+                <MenuItem Header="_Save" Click="menuSave_Click" ToolTip="Click to save image"/>
+                <MenuItem Header="_Load" Click="menuLoad_Click" ToolTip="Click to open image from the system"/>
+                <MenuItem Header="E_xit" Click="menuExit_Click" ToolTip="Click to exit the application"/>
+            </MenuItem>
+            <MenuItem Header="_Edit" ToolTip="Click to view multiple editing options" TabIndex="1">
+                <MenuItem Header="Copy" Click="menuCopy_Click" ToolTip="Click to copy current image on canvas"/>
+                <MenuItem Header="Paste Image" Click="menuPaste_Click" ToolTip="Click to paste image on canvas"/>
+                <MenuItem Header="Paste Text" Click="menuPasteText_Click" ToolTip="Click to paste text on canvas"/>
+            </MenuItem>
             <!-- ToolBar under the Menu or Ribbon. Dock=Top.-->
-            <!-- Canvas for drawing. -->
-            <Canvas Name="canvasDraw" Background="White" Margin="2" MouseLeftButtonDown="StartDraw" MouseLeftButtonUp="EndDraw" MouseMove="MouseOnCanvas"/>
+            <MenuItem Header="_Settings" ToolTip="Click to view multiple brush options." TabIndex="2">
+                <MenuItem Header="Brush _Thickness" Click="menuThickness_Click" ToolTip="Click to set brush thickness" />
+                <MenuItem Header="Brush _Colour" Click="menuColour_Click" ToolTip="Click to set brush color"/>
+            </MenuItem>
+            <MenuItem Header="_Help" ToolTip="Click for Help" TabIndex="3">
+                <MenuItem Header="How to Draw" Click="menuHowToDraw_Click" ToolTip="Click to get help on browser"/>
+                <MenuItem Header="About" Click="menuAbout_Click" ToolTip="Click to see about Author"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- Canvas for drawing. -->
+            <Canvas Name="canvasDraw" Background="White" Grid.Row="1" Margin="2" MouseLeftButtonDown="StartDraw" MouseLeftButtonUp="EndDraw" MouseMove="MouseOnCanvas" ToolTip="Click to draw image on canvas"/>
 
             <!-- Status bar, at the bottom? Dock=Bottom.-->
-
-        </DockPanel>
+        <StatusBar Grid.Row="2" ToolTip="Current status of application">
+            <TextBlock Name="statusBarText" Text="Ready" />
+        </StatusBar>
     </Grid>
 </Window>
