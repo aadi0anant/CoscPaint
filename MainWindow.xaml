@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CoscPaint"
         mc:Ignorable="d"
+        Icon="/icons8-microsoft-paint-64.png"
         Title="COSC Paint!"
         Height="480" MinHeight="300"
         Width="640" MinWidth="300"
@@ -18,10 +19,10 @@
         <!-- Menu bar or Ribbon, perhaps, at the top? Dock=Top. -->
         <Menu Grid.Row="0">
             <MenuItem Header="_File" ToolTip="Click for multiple file options" TabIndex="0">
-                <MenuItem Header="_New Window" Click="menuNewWindow_Click" ToolTip="Click to open new window"/>
-                <MenuItem Header="_Save" Click="menuSave_Click" ToolTip="Click to save image"/>
-                <MenuItem Header="_Load" Click="menuLoad_Click" ToolTip="Click to open image from the system"/>
-                <MenuItem Header="E_xit" Click="menuExit_Click" ToolTip="Click to exit the application"/>
+                <MenuItem Header="New Window" Click="menuNewWindow_Click" ToolTip="Click to open new window"/>
+                <MenuItem Header="Save" Click="menuSave_Click" ToolTip="Click to save image"/>
+                <MenuItem Header="Load" Click="menuLoad_Click" ToolTip="Click to open image from the system"/>
+                <MenuItem Header="Exit" Click="MenuExit_Click" ToolTip="Click to exit the application"/>
             </MenuItem>
             <MenuItem Header="_Edit" ToolTip="Click to view multiple editing options" TabIndex="1">
                 <MenuItem Header="Copy" Click="menuCopy_Click" ToolTip="Click to copy current image on canvas"/>
@@ -30,21 +31,23 @@
             </MenuItem>
             <!-- ToolBar under the Menu or Ribbon. Dock=Top.-->
             <MenuItem Header="_Settings" ToolTip="Click to view multiple brush options." TabIndex="2">
-                <MenuItem Header="Brush _Thickness" Click="menuThickness_Click" ToolTip="Click to set brush thickness" />
-                <MenuItem Header="Brush _Colour" Click="menuColour_Click" ToolTip="Click to set brush color"/>
+                <MenuItem Header="Brush Thickness" Click="menuThickness_Click" ToolTip="Click to set brush thickness" />
+                <MenuItem Header="Set Brush to Red Colour" Click="menuRedColour_Click" ToolTip="Click to set brush to Red color"/>
+                <MenuItem Header="Set Brush to Black Colour" Click="menuBlackColour_Click" ToolTip="Click to set brush to Black color"/>
             </MenuItem>
             <MenuItem Header="_Help" ToolTip="Click for Help" TabIndex="3">
                 <MenuItem Header="How to Draw" Click="menuHowToDraw_Click" ToolTip="Click to get help on browser"/>
                 <MenuItem Header="About" Click="menuAbout_Click" ToolTip="Click to see about Author"/>
             </MenuItem>
+
         </Menu>
 
         <!-- Canvas for drawing. -->
-            <Canvas Name="canvasDraw" Background="White" Grid.Row="1" Margin="2" MouseLeftButtonDown="StartDraw" MouseLeftButtonUp="EndDraw" MouseMove="MouseOnCanvas" ToolTip="Click to draw image on canvas"/>
+        <Canvas Name="canvasDraw" Background="White" Grid.Row="1" Margin="2" MouseLeftButtonDown="StartDraw" MouseLeftButtonUp="EndDraw" MouseMove="MouseOnCanvas" ToolTip="Click to draw image on canvas"/>
 
-            <!-- Status bar, at the bottom? Dock=Bottom.-->
+        <!-- Status bar, at the bottom? Dock=Bottom.-->
         <StatusBar Grid.Row="2" ToolTip="Current status of application">
-            <TextBlock Name="statusBarText" Text="Ready" />
+            <TextBlock Name="textStatusBar" Text="Ready" />
         </StatusBar>
     </Grid>
 </Window>

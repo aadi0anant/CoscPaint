@@ -8,4 +8,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="icons8-microsoft-paint-64.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="icons8-microsoft-paint-64.png" />
+  </ItemGroup>
+
 </Project>
